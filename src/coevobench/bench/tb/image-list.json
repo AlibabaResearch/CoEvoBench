@@ -1,0 +1,825 @@
+{
+  "benchmark": "tb",
+  "image_source": "TB task images are not published pre-built: the official path (harbor / terminal-bench harness) builds each task image from its environment/Dockerfile in the OpenThoughts-TBLite dataset (github: open-thoughts/OpenThoughts-TBLite, HF: open-thoughts/OpenThoughts-TBLite). Every Dockerfile FROM resolves publicly: 13 standard docker.io images plus 2 official Terminal-Bench base images at ghcr.io/laude-institute/t-bench (all 15 verified resolvable at generation time). Per task, base_images lists the FROM lines its Dockerfile pulls and image is null because no public registry serves per-task artifacts. The reference full-coverage path for repeated evaluation: import the task images into a private registry keyed by task name and configure eval_images.mirrors with tag_source='task_id' — references then resolve as <rewrite><task_id> with zero probing, and 'ceb data materialize tb' bakes them into the task cache.",
+  "total": 100,
+  "base_images": {
+    "ubuntu:22.04": 41,
+    "python:3.13-slim-bookworm": 28,
+    "ubuntu:24.04": 5,
+    "python:3.11-slim": 5,
+    "ghcr.io/laude-institute/t-bench/python-3-13:20250620": 5,
+    "python:3.13-slim": 3,
+    "python:3.12-slim": 3,
+    "python:3.12-slim-bookworm": 2,
+    "continuumio/miniconda3:24.4.0-0": 2,
+    "debian:bookworm-slim": 2,
+    "python:3.12.3-slim-bookworm": 1,
+    "eclipse-temurin:11-jdk": 1,
+    "eclipse-temurin:17-jdk-jammy": 1,
+    "gcc:13.2.0-bookworm": 1,
+    "ghcr.io/laude-institute/t-bench/ubuntu-24-04:20250624": 1
+  },
+  "instances": [
+    {
+      "task_id": "acl-permissions-inheritance",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:24.04"
+      ]
+    },
+    {
+      "task_id": "amuse-install",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "anomaly-detection-ranking",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "api-endpoint-permission-canonicalizer",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "application-debug",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "auth_token_race_condition",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "python:3.11-slim"
+      ]
+    },
+    {
+      "task_id": "bandit-delayed-feedback",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.12-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "bash-log-processor-fix",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "basic-message-queue",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "battery-charging-optimization",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "bloom-filter-cache-penetration-prevention",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "book-portfolio-analysis",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "bracket-sequence-restoration",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "breast-cancer-mlflow",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ghcr.io/laude-institute/t-bench/python-3-13:20250620"
+      ]
+    },
+    {
+      "task_id": "broken-python",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "build-merkle-tree-cli-sha512",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "build-system-task-ordering",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "california-housing-api",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ghcr.io/laude-institute/t-bench/python-3-13:20250620"
+      ]
+    },
+    {
+      "task_id": "chained-forensic-extraction_20260101_011957",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "competitive-programming-solver",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "container-registry-optimization",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ghcr.io/laude-institute/t-bench/python-3-13:20250620"
+      ]
+    },
+    {
+      "task_id": "convolutional-layers",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ghcr.io/laude-institute/t-bench/python-3-13:20250620"
+      ]
+    },
+    {
+      "task_id": "corrupted-filesystem-recovery",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "cosign-keyless-signing",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim"
+      ]
+    },
+    {
+      "task_id": "cpp-daemon-sighup-segfault",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:24.04"
+      ]
+    },
+    {
+      "task_id": "cryptographic-protocol-verifier",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "csv-json-jsonl-merger",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.12-slim"
+      ]
+    },
+    {
+      "task_id": "db-migration-local-storage",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.11-slim"
+      ]
+    },
+    {
+      "task_id": "distributed-test-execution-scheduler",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.12.3-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "ekf-localization",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "etl_checkpoint_resume_bug",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.12-slim"
+      ]
+    },
+    {
+      "task_id": "fix-js-network-controller",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.11-slim"
+      ]
+    },
+    {
+      "task_id": "fix_async_worker_queue",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "python:3.11-slim"
+      ]
+    },
+    {
+      "task_id": "floor-plan-geometry",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "game-of-stones",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "git-repo-forensics",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "grid-pathfinding",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "grpc-plant-position-server",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "html-index-analysis",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "hydra-debug-slurm-mode",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "image-tile-identification",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "industrial-kiln-controller",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "ubuntu:24.04"
+      ]
+    },
+    {
+      "task_id": "iot-device-registration-server",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "iris-dataset-classification",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "jq-data-processing",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "jsonl-aggregator",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim"
+      ]
+    },
+    {
+      "task_id": "legal-summary-extraction",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "log-summary",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:24.04"
+      ]
+    },
+    {
+      "task_id": "malicious-package-forensics",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim"
+      ]
+    },
+    {
+      "task_id": "maven-slf4j-conflict",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "eclipse-temurin:11-jdk"
+      ]
+    },
+    {
+      "task_id": "mech-system",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "mlflow-register",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "monorepo-changelog-cli",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "mtls-cert-rotation",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "multi-labeller",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "multi-server-configuration",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "network-log-normalization",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "neural-architecture-search-final",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ghcr.io/laude-institute/t-bench/python-3-13:20250620"
+      ]
+    },
+    {
+      "task_id": "neutron-submission",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "okhttp-trailers-crash",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "eclipse-temurin:17-jdk-jammy"
+      ]
+    },
+    {
+      "task_id": "pandas-etl",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "pandas-numpy-data-analysis",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "parking-lot-pathfinding",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "pdf-table-parsing",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "permutation-construction-100k",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "pgn-chess-repair-puzzles",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "playing-card-recognition",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "prediction-model-evaluation",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "protein-sequence",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "continuumio/miniconda3:24.4.0-0"
+      ]
+    },
+    {
+      "task_id": "publisher-market-analysis",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "publisher-market-analysis-v2",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "python-api-rate-limit",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "raft-log-repair-concurrent-access",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "react-typescript-debugg",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "reproducibility-and-envsetup",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "reverse-engineer-stack-vm",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "debian:bookworm-slim",
+        "gcc:13.2.0-bookworm"
+      ]
+    },
+    {
+      "task_id": "rsa-jwt-token-api-redis-blacklist",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "sakila-sqlite-queries",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "sales-data-csv-analysis",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "scan-linux-persistence-artifacts",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "schedule-vacation",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "security-breach-incident-response",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "security-incident-log-analysis",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "server-log-analysis",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "service-deployment-wave-planner",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.12-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "sign-vector-game",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:24.04"
+      ]
+    },
+    {
+      "task_id": "simple-database-query-tool",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "smiles-data-lab",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "continuumio/miniconda3:24.4.0-0"
+      ]
+    },
+    {
+      "task_id": "sql-injection-forensics",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "submission_a63937a5_20251224_152124",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.11-slim"
+      ]
+    },
+    {
+      "task_id": "supply-chain-fulfillment",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.12-slim"
+      ]
+    },
+    {
+      "task_id": "symlink-chain-traversal",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "sympy-bug-fix",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "systemd-log-monitoring",
+      "split": "visible",
+      "image": null,
+      "base_images": [
+        "debian:bookworm-slim"
+      ]
+    },
+    {
+      "task_id": "task-xxe-exploit",
+      "split": "test",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "todos-api",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "token-auth-websocket",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ghcr.io/laude-institute/t-bench/ubuntu-24-04:20250624"
+      ]
+    },
+    {
+      "task_id": "tsl-test-case-generation",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    },
+    {
+      "task_id": "vimscript-vim-quine",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "python:3.13-slim-bookworm"
+      ]
+    },
+    {
+      "task_id": "word-derangement-mapping",
+      "split": "selection",
+      "image": null,
+      "base_images": [
+        "ubuntu:22.04"
+      ]
+    }
+  ]
+}

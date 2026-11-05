@@ -1,0 +1,5 @@
+#!/bin/sh
+# Frozen development-evaluation entry (operator asset; do not modify).
+# Delegates to the in-envelope ceb eval client, which forwards over
+# the broker socket to the operator-side engine.
+exec ceb eval --bench swe "$@"

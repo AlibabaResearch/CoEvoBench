@@ -1,0 +1,27 @@
+__pycache__/
+*.pyc
+.venv/
+.venv-*/
+.local/
+.ceb/
+.env
+.env.*
+*.env
+.cloud-secrets.json
+*.pem
+*.key
+runs/
+out/
+*.log
+vendor/appworld/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+ceb.toml
+.DS_Store
+.source-manifest.json
+# BFCL engine runs write result/score trees inside the submodule
+vendor/gorilla/berkeley-function-call-leaderboard/result/
+vendor/gorilla/berkeley-function-call-leaderboard/score/

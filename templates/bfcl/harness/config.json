@@ -1,0 +1,5 @@
+{
+  "temperature": 0.001,
+  "max_tokens": 4096,
+  "max_steps": 20
+}

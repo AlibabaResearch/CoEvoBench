@@ -1,0 +1,6 @@
+{
+  "benchmark": "appworld",
+  "image_source": "In-process environment (appworld library + data); no Docker images required.",
+  "total": 0,
+  "instances": []
+}

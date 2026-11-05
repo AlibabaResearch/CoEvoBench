@@ -1,0 +1,6 @@
+{
+  "benchmark": "bfcl",
+  "image_source": "In-process evaluation (vendored BFCL v4 engine); no Docker images required.",
+  "total": 0,
+  "instances": []
+}

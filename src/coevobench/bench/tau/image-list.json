@@ -1,0 +1,6 @@
+{
+  "benchmark": "tau",
+  "image_source": "In-process environment (tau2-bench library); no Docker images required.",
+  "total": 0,
+  "instances": []
+}

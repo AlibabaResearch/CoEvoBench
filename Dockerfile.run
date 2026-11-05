@@ -1,0 +1,145 @@
+# Run envelope image: the pinned environment every development run executes in.
+#
+# Design doc Section 2.1.1: the image carries the python stack and the
+# researcher CLI runtimes; the broker socket and workspace are mounted at
+# launch. Keep this layer cacheable: heavy deps first, volatile last.
+#
+# What MUST NOT be in this image (integrity primitives 1-3):
+#   - split definitions and anonymous mappings (bench secrets)
+#   - the frozen transport file and its canonical hash
+#   - scoring, freeze, provenance, contamination, audit logic
+# The in-envelope eval entry is a thin client: it forwards evaluation
+# requests to the host broker (sandbox ops and judging happen operator-side).
+#
+# The ceb the envelope runs comes from the envelope distribution
+# (envelope/): a whitelisted client-surface wheel built in a separate
+# stage, so the full source tree — splits, grading, bench adapters —
+# never enters this image, not even in a pruned layer. ceb installs as
+# an isolated root-owned uv tool (researcher pip installs cannot shadow
+# the frozen entries) and the same wheel lands in the system python for
+# the documented Python-client imports. The build asserts the boundary:
+# the engine must not import.
+#
+# Researcher CLIs install as single prebuilt binaries: claude-code from
+# the official GitHub release tarballs, opencode from its release
+# tarball channel. Versions pinned for reproducibility.
+
+FROM python:3.11-slim AS envelope
+
+# Build the client-surface wheel. Nothing from the repo crosses to the
+# final image except this wheel.
+RUN pip install --no-cache-dir uv
+WORKDIR /src
+COPY . .
+ENV UV_TOOL_DIR=/opt/ceb-tools \
+    UV_TOOL_BIN_DIR=/usr/local/bin \
+    UV_PYTHON_DOWNLOADS=never
+RUN python3 envelope/build.py --out /out \
+    && uv tool install /out/dist/coevobench_envelope-*.whl \
+    && PYTHONPATH=src python3 -m coevobench.runtime.envelope > /out/envelope.sha256
+
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    HOME=/home/researcher
+
+ARG CLAUDE_CODE_VERSION=v2.1.296
+ARG OPENCODE_VERSION=2.2.5
+ARG CODEX_VERSION=0.166.0
+
+# Build tooling kept minimal: wheel-only installs where possible.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       ca-certificates curl git jq procps tini xz-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+# claude-code: official static binary (glibc build).
+RUN curl -fsSL \
+      "https://github.com/anthropics/claude-code/releases/download/${CLAUDE_CODE_VERSION}/claude-linux-x64.tar.gz" \
+      -o /tmp/claude.tar.gz \
+    && mkdir -p /usr/local/bin /opt/claude \
+    && tar -xzf /tmp/claude.tar.gz -C /opt/claude \
+    && ln -s /opt/claude/claude /usr/local/bin/claude \
+    && rm /tmp/claude.tar.gz \
+    && claude --version
+
+# opencode: official install script (auto-detects musl/baseline
+# variants and verifies the release). Installs to $HOME/.opencode/bin;
+# HOME points at /opt so the binary lives outside any user's home,
+# then linked into PATH for all users (the image ends as USER
+# researcher, which cannot read /root).
+RUN mkdir -p /opt/opencode-home \
+    && curl -fsSL "https://opencode.ai/v2/install" -o /tmp/install-opencode.sh \
+    && HOME=/opt/opencode-home bash /tmp/install-opencode.sh --version "$OPENCODE_VERSION" --no-modify-path \
+    && ln -s /opt/opencode-home/.opencode/bin/opencode /usr/local/bin/opencode \
+    && chmod -R a+rX /opt/opencode-home \
+    && opencode --version
+
+RUN curl -fsSL \
+      "https://github.com/openai/codex/releases/download/rust-v${CODEX_VERSION}/codex-x86_64-unknown-linux-musl.tar.gz" \
+      -o /tmp/codex.tar.gz \
+    && tar -xzf /tmp/codex.tar.gz -C /usr/local/bin \
+    && mv /usr/local/bin/codex-x86_64-unknown-linux-musl /usr/local/bin/codex \
+    && rm /tmp/codex.tar.gz \
+    && codex --version
+
+# Research stack (training + serving + eval drivers). These are version
+# ranges; record the built image and installed versions for reproducibility.
+RUN pip install --no-cache-dir \
+    "torch>=2.4" \
+    "transformers>=4.44" \
+    "datasets>=2.20" \
+    "peft>=0.12" \
+    "trl>=0.9" \
+    "accelerate>=0.34" \
+    "litellm>=1.40" \
+    "pydantic>=2.7"
+
+# vLLM is the largest layer and evolves fastest; it stays last so the
+# rest of the stack remains cacheable when it moves.
+RUN pip install --no-cache-dir "vllm==0.32.0" "transformers==5.19.0" \
+    && pip check \
+    && pip freeze > /opt/researcher-requirements.txt
+
+# ceb: the frozen client. The tool venv is root-owned and outside the
+# researcher's site path; the same wheel installs into the system
+# python so researcher code can import coevobench.research.client.
+# The assertions are the integrity boundary — the build fails loudly
+# if anything beyond the client surface ever leaks in.
+COPY --from=envelope /out/dist /tmp/ceb-dist
+COPY --from=envelope /opt/ceb-tools /opt/ceb-tools
+COPY --from=envelope /usr/local/bin/ceb /usr/local/bin/ceb
+COPY --from=envelope /out/envelope.sha256 /opt/ceb-envelope.sha256
+RUN pip install --no-cache-dir /tmp/ceb-dist/coevobench_envelope-*.whl \
+    && rm -rf /tmp/ceb-dist \
+    && ceb --version \
+    && python3 -c "from coevobench.research.client import Client" \
+    && ceb track \
+    && ! python3 -c "import coevobench.bench" 2>/dev/null \
+    && ! python3 -c "import coevobench.core.evaluation" 2>/dev/null \
+    && ! python3 -c "import coevobench.core.grading.scoring" 2>/dev/null \
+    && ! python3 -c "import coevobench.core.contamination" 2>/dev/null
+
+# Triton compiles host helpers at runtime; serving/training need a C toolchain.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Persistent researcher driver: structured progress, bounded fresh-session
+# recovery and explicit submission checks within the original deadline.
+COPY templates/researcher-loop.sh /opt/researcher-loop.sh
+RUN chmod 755 /opt/researcher-loop.sh
+
+# Workspace seed material (TASK.md, harness, frozen entries, tools doc):
+# local runs provision a bind-mounted workspace host-side; remote runs
+# (Modal) provision the volume-mounted workspace in-envelope from here.
+COPY templates /opt/coevobench-templates
+
+RUN useradd -m -s /bin/bash researcher \
+    && mkdir -p /home/researcher/.claude /workspace \
+    && chown -R researcher:researcher /home/researcher /workspace
+
+USER researcher
+WORKDIR /workspace

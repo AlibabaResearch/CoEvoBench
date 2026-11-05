@@ -1,0 +1,4 @@
+#!/bin/sh
+# Frozen development-evaluation entry (operator asset; do not modify).
+# Delegates to ceb eval inside the run envelope.
+exec ceb eval --bench toy "$@"

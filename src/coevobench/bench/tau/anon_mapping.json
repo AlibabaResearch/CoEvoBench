@@ -1,0 +1,457 @@
+{
+  "A-ac91f493": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|bad_wifi_calling|break_apn_mms_setting|break_app_both_permissions|unseat_sim_card|user_abroad_roaming_enabled_off[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-e9524e88": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|bad_wifi_calling|break_apn_mms_setting|break_app_sms_permission|data_mode_off|data_usage_exceeded|unseat_sim_card|user_abroad_roaming_disabled_on[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-b4f0f475": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|bad_wifi_calling|break_apn_mms_setting|break_app_storage_permission|data_mode_off|data_usage_exceeded|unseat_sim_card[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-0630ca05": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|bad_wifi_calling|break_apn_mms_setting|break_app_storage_permission|data_mode_off|data_usage_exceeded|unseat_sim_card|user_abroad_roaming_disabled_on[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-469f26d8": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|data_usage_exceeded[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-11a69796": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|break_app_both_permissions|data_usage_exceeded|user_abroad_roaming_disabled_off[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-74bd2178": {
+    "real_id": "telecom:[mms_issue]bad_network_preference|bad_wifi_calling|break_app_sms_permission|data_mode_off|data_usage_exceeded|unseat_sim_card|user_abroad_roaming_enabled_off[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-c32b79ae": {
+    "real_id": "telecom:[mms_issue]bad_network_preference|break_app_both_permissions[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-1518941b": {
+    "real_id": "telecom:[mms_issue]bad_network_preference|break_app_sms_permission|user_abroad_roaming_disabled_on[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-e9bb5892": {
+    "real_id": "telecom:[mms_issue]bad_network_preference|data_mode_off|user_abroad_roaming_disabled_on[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-9f81ab6d": {
+    "real_id": "telecom:[mms_issue]bad_network_preference|user_abroad_roaming_disabled_on[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-42345299": {
+    "real_id": "telecom:[mms_issue]bad_wifi_calling|break_apn_mms_setting|break_app_both_permissions|data_mode_off|data_usage_exceeded|user_abroad_roaming_disabled_off[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-359caa30": {
+    "real_id": "telecom:[mms_issue]bad_wifi_calling|break_apn_mms_setting|unseat_sim_card|user_abroad_roaming_enabled_off[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-e56533a9": {
+    "real_id": "telecom:[mms_issue]bad_wifi_calling|data_mode_off|data_usage_exceeded[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-a80eb2c0": {
+    "real_id": "telecom:[mms_issue]break_app_sms_permission|data_mode_off[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-3911b298": {
+    "real_id": "telecom:[mms_issue]break_app_storage_permission|data_usage_exceeded[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-995ed736": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|bad_network_preference|bad_vpn|data_mode_off|data_saver_mode_on|data_usage_exceeded|user_abroad_roaming_disabled_on[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-3eb1aa9a": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|bad_network_preference|bad_vpn|data_mode_off|data_saver_mode_on|data_usage_exceeded|user_abroad_roaming_enabled_off[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-2e5f2b32": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|bad_network_preference|bad_vpn|data_mode_off|data_saver_mode_on|user_abroad_roaming_disabled_off[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-c78a2988": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|bad_network_preference|bad_vpn|data_saver_mode_on|user_abroad_roaming_disabled_on[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-ad00100d": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|bad_network_preference|data_mode_off|data_saver_mode_on|data_usage_exceeded|user_abroad_roaming_disabled_on[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-fc7278f3": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|bad_network_preference|data_saver_mode_on|data_usage_exceeded|user_abroad_roaming_disabled_off[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-1f0b8d08": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|bad_network_preference|data_usage_exceeded|user_abroad_roaming_disabled_off[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-a7f2d1ee": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|bad_network_preference|user_abroad_roaming_enabled_off[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-901eb987": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|data_mode_off[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-3847e244": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|data_mode_off|data_saver_mode_on|data_usage_exceeded|user_abroad_roaming_enabled_off[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-5d6e24b2": {
+    "real_id": "telecom:[mobile_data_issue]bad_network_preference|bad_vpn|data_saver_mode_on|data_usage_exceeded|user_abroad_roaming_disabled_off[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-3733c537": {
+    "real_id": "telecom:[mobile_data_issue]bad_network_preference|bad_vpn|user_abroad_roaming_disabled_off[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-07452b51": {
+    "real_id": "telecom:[mobile_data_issue]bad_network_preference|bad_vpn|user_abroad_roaming_enabled_off[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-6c5459d8": {
+    "real_id": "telecom:[mobile_data_issue]bad_network_preference|data_saver_mode_on|data_usage_exceeded[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-db451f85": {
+    "real_id": "telecom:[mobile_data_issue]bad_vpn|data_saver_mode_on|user_abroad_roaming_disabled_on[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-74aa9f88": {
+    "real_id": "telecom:[mobile_data_issue]data_mode_off|data_usage_exceeded|user_abroad_roaming_disabled_off[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-4ec3b73d": {
+    "real_id": "telecom:[mobile_data_issue]data_saver_mode_on|data_usage_exceeded[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-1814da1d": {
+    "real_id": "telecom:[mobile_data_issue]data_usage_exceeded|user_abroad_roaming_enabled_off[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-347383c9": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|break_apn_settings[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-e2c60bb6": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|break_apn_settings|contract_end_suspension|lock_sim_card_pin|unseat_sim_card[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-188ed3b1": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|break_apn_settings|contract_end_suspension|unseat_sim_card[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-dbdd0781": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|break_apn_settings|lock_sim_card_pin[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-9a7d22bd": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|break_apn_settings|lock_sim_card_pin|overdue_bill_suspension[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-29d71688": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|break_apn_settings|overdue_bill_suspension|unseat_sim_card[PERSONA:None]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-03703f4a": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|contract_end_suspension|lock_sim_card_pin|unseat_sim_card[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-85e677d0": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|lock_sim_card_pin|unseat_sim_card[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-bb915b1c": {
+    "real_id": "telecom:[service_issue]break_apn_settings|contract_end_suspension|lock_sim_card_pin|unseat_sim_card[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-7958ab8e": {
+    "real_id": "telecom:[service_issue]break_apn_settings|overdue_bill_suspension|unseat_sim_card[PERSONA:Hard]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-5970266c": {
+    "real_id": "telecom:[service_issue]lock_sim_card_pin|overdue_bill_suspension[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-99815ffa": {
+    "real_id": "telecom:[service_issue]overdue_bill_suspension|unseat_sim_card[PERSONA:Easy]",
+    "split": "select",
+    "bench": "tau"
+  },
+  "A-f0702450": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|bad_wifi_calling|break_apn_mms_setting|break_app_sms_permission|data_mode_off|data_usage_exceeded|unseat_sim_card|user_abroad_roaming_enabled_off[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-e4b516e1": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|bad_wifi_calling|break_apn_mms_setting|break_app_storage_permission|data_mode_off|data_usage_exceeded|unseat_sim_card|user_abroad_roaming_disabled_off[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-60beede6": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|bad_wifi_calling|break_app_sms_permission|data_mode_off|data_usage_exceeded|unseat_sim_card|user_abroad_roaming_disabled_off[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-c3905944": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|bad_wifi_calling|break_app_storage_permission|data_mode_off|data_usage_exceeded|unseat_sim_card|user_abroad_roaming_enabled_off[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-80a93889": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|bad_wifi_calling|data_usage_exceeded|unseat_sim_card|user_abroad_roaming_disabled_on[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-0c975670": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|break_apn_mms_setting|break_app_both_permissions|data_mode_off|data_usage_exceeded|user_abroad_roaming_enabled_off[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-81968b24": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|break_apn_mms_setting|break_app_storage_permission[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-0e78b9e8": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|break_apn_mms_setting|data_usage_exceeded[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-5587ef61": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|break_app_both_permissions|data_usage_exceeded|unseat_sim_card|user_abroad_roaming_disabled_on[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-51e95958": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_network_preference|break_app_storage_permission|data_mode_off|user_abroad_roaming_enabled_off[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-b27014d8": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|bad_wifi_calling|user_abroad_roaming_enabled_off[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-ace0d9f2": {
+    "real_id": "telecom:[mms_issue]airplane_mode_on|break_app_both_permissions[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-c43a6988": {
+    "real_id": "telecom:[mms_issue]bad_network_preference|bad_wifi_calling|break_apn_mms_setting|break_app_storage_permission|data_mode_off|data_usage_exceeded|unseat_sim_card[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-bdae2f3b": {
+    "real_id": "telecom:[mms_issue]bad_network_preference|bad_wifi_calling|break_app_both_permissions|data_usage_exceeded|user_abroad_roaming_disabled_off[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-510ba45c": {
+    "real_id": "telecom:[mms_issue]bad_network_preference|bad_wifi_calling|break_app_sms_permission|data_mode_off|unseat_sim_card|user_abroad_roaming_enabled_off[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-01742339": {
+    "real_id": "telecom:[mms_issue]bad_network_preference|user_abroad_roaming_disabled_off[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-881c4cb7": {
+    "real_id": "telecom:[mms_issue]break_apn_mms_setting|data_mode_off|data_usage_exceeded|user_abroad_roaming_disabled_on[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-5e3c056c": {
+    "real_id": "telecom:[mms_issue]break_apn_mms_setting|data_mode_off|user_abroad_roaming_disabled_on[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-bbf05bf4": {
+    "real_id": "telecom:[mms_issue]break_apn_mms_setting|user_abroad_roaming_enabled_off[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-e537ced8": {
+    "real_id": "telecom:[mms_issue]break_app_both_permissions|data_usage_exceeded[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-99bde6aa": {
+    "real_id": "telecom:[mms_issue]break_app_both_permissions|unseat_sim_card|user_abroad_roaming_disabled_on[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-2ec42e19": {
+    "real_id": "telecom:[mms_issue]break_app_storage_permission|unseat_sim_card|user_abroad_roaming_disabled_on[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-a87b94f9": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|bad_network_preference|bad_vpn|data_mode_off|data_saver_mode_on|data_usage_exceeded|user_abroad_roaming_disabled_off[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-28c207db": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|bad_network_preference|bad_vpn|data_mode_off|data_usage_exceeded|user_abroad_roaming_enabled_off[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-52a49d8d": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|bad_network_preference|data_mode_off|data_usage_exceeded|user_abroad_roaming_disabled_on[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-94c157ed": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|data_saver_mode_on|user_abroad_roaming_disabled_on[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-9f59ec08": {
+    "real_id": "telecom:[mobile_data_issue]airplane_mode_on|user_abroad_roaming_enabled_off[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-8c4b656c": {
+    "real_id": "telecom:[mobile_data_issue]bad_network_preference|bad_vpn|data_mode_off|data_saver_mode_on[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-e21e8004": {
+    "real_id": "telecom:[mobile_data_issue]bad_network_preference|bad_vpn|data_usage_exceeded|user_abroad_roaming_disabled_off[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-f132ef24": {
+    "real_id": "telecom:[mobile_data_issue]bad_network_preference|bad_vpn|user_abroad_roaming_disabled_on[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-24355fc7": {
+    "real_id": "telecom:[mobile_data_issue]bad_network_preference|user_abroad_roaming_enabled_off[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-df71885b": {
+    "real_id": "telecom:[mobile_data_issue]bad_vpn|data_mode_off|data_usage_exceeded|user_abroad_roaming_disabled_off[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-55e19f67": {
+    "real_id": "telecom:[mobile_data_issue]data_mode_off|data_usage_exceeded[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-1a42cd08": {
+    "real_id": "telecom:[mobile_data_issue]data_saver_mode_on|user_abroad_roaming_enabled_off[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-50d2681d": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|break_apn_settings|lock_sim_card_pin|overdue_bill_suspension|unseat_sim_card[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-e48f7058": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|break_apn_settings|lock_sim_card_pin|unseat_sim_card[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-d21f4318": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|break_apn_settings|overdue_bill_suspension[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-8cbbd210": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|lock_sim_card_pin|overdue_bill_suspension[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-305ac0a6": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|lock_sim_card_pin|overdue_bill_suspension|unseat_sim_card[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-9d923099": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|overdue_bill_suspension[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-3bf426d9": {
+    "real_id": "telecom:[service_issue]airplane_mode_on|overdue_bill_suspension|unseat_sim_card[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-59dda896": {
+    "real_id": "telecom:[service_issue]break_apn_settings|lock_sim_card_pin[PERSONA:None]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-3ecd68a1": {
+    "real_id": "telecom:[service_issue]break_apn_settings|lock_sim_card_pin|overdue_bill_suspension[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-2df732af": {
+    "real_id": "telecom:[service_issue]break_apn_settings|lock_sim_card_pin|overdue_bill_suspension|unseat_sim_card[PERSONA:Easy]",
+    "split": "test",
+    "bench": "tau"
+  },
+  "A-a38cdb5e": {
+    "real_id": "telecom:[service_issue]contract_end_suspension|lock_sim_card_pin[PERSONA:Hard]",
+    "split": "test",
+    "bench": "tau"
+  }
+}

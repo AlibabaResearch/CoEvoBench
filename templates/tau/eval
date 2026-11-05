@@ -1,0 +1,3 @@
+#!/bin/sh
+# Frozen development-evaluation entry (operator asset; do not modify).
+exec ceb eval --bench tau "$@"

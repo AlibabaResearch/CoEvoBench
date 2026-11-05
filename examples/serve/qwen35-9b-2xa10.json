@@ -1,0 +1,9 @@
+{
+  "tensor_parallel": 2,
+  "gpu_mem_util": 0.9,
+  "max_len": 32768,
+  "max_num_seqs": 32,
+  "enable_prefix_caching": true,
+  "enforce_eager": true,
+  "extra_args": ["--limit-mm-per-prompt", "{\"image\":0,\"video\":0}"]
+}

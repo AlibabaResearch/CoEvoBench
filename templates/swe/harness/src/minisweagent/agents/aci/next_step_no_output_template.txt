@@ -1,0 +1,4 @@
+Your command ran successfully and did not produce any output.
+(Open file: {open_file})
+(Current directory: {working_dir})
+bash-$

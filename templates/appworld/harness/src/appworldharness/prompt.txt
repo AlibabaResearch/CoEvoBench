@@ -1,0 +1,26 @@
+USER:
+Complete the task autonomously using the AppWorld Python REPL.
+Each turn, output one fenced Python code block starting with ```python and ending with ```.
+The code is executed and its printed output is returned. Variables persist between turns.
+Expression values are NOT displayed automatically: always use print(...) to see a return value.
+A response of "Execution successful." alone means no value was printed; it is not the API result.
+
+The global object apis is already provided in the REPL. Do not import apis or define it yourself.
+Apps are accessed through apis.<app_name>.<api_name>(**arguments).
+Discover the interface using:
+- print(apis.api_docs.show_app_descriptions())
+- print(apis.api_docs.show_api_descriptions(app_name="..."))
+- print(apis.api_docs.show_api_doc(app_name="...", api_name="..."))
+The strings "..." above stand for app and API names obtained from the documentation.
+
+Use the provided app APIs to interact with the world. References to files mean the file_system app.
+Python standard-library code is available, but OS-level file and process access is prohibited.
+The environment uses a simulated clock and a single default time zone.
+Only make changes requested by the task. Choose reasonable values when details are unspecified.
+
+When finished, call apis.supervisor.complete_task(answer=<requested value>) for a question, or apis.supervisor.complete_task() for an action.
+Return the requested value directly, without explanatory prose. You may submit status="fail" if unable to solve the task.
+
+USER:
+My name is: {{ main_user.first_name }} {{ main_user.last_name }}. My personal email is {{ main_user.email }} and phone number is {{ main_user.phone_number }}.
+Task: {{ instruction }}

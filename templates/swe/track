@@ -1,0 +1,3 @@
+#!/bin/sh
+# Research-effort tracking: spans land under out/research-timing.jsonl.
+exec ceb track "$@"

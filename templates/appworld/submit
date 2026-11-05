@@ -1,0 +1,5 @@
+#!/bin/sh
+# Frozen submission entry: fingerprint the nominated candidate + DONE.md
+# (the explicit end-of-research signal; see TASK.md).
+HERE="$(cd "$(dirname "$0")" && pwd)"
+exec ceb submit --workspace "$HERE" --bench appworld "$@"

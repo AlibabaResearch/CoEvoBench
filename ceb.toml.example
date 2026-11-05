@@ -1,0 +1,64 @@
+# Copy to ceb.toml. Keep credentials in environment variables.
+# Launch currently takes researcher/model/budget/GPUs/RunHost from explicit CLI
+# arguments, and the researcher endpoint/token from RESEARCHER_BASE_URL/TOKEN.
+[researcher]
+model = "your-researcher-model"
+cli = "claude-code"
+reasoning_effort = "high"
+base_url = "https://your-researcher-endpoint.example"
+
+[budget]
+hours = 24
+gpus_per_run = 4
+teacher_spend_usd = 100.0
+# Reference allowance; the broker TeacherForwarder does not meter USD.
+# Configure spending enforcement separately on the operator's teacher endpoint.
+
+[runhost]
+provider = "docker"
+
+# Provider-specific composition needs workspace/serving connectivity as well.
+# See docs/architecture.md; runtime registration is not full CLI integration.
+# [runhost.modal]
+# gpu = "H100"
+# count = 4
+
+[sandbox]
+runtime = "docker"
+# Alternatives: "modal", "daytona"; "broker" is the in-envelope client.
+# For Modal private pulls, provide a provider secret:
+# registry_secret = "registry-pull"
+
+# Optional pull-side evaluation-image mirror. No mirror is enabled by default.
+# [[eval_images.mirrors]]
+# prefix = "swebench/"
+# rewrite = "registry.example.com/swebench-verified:"
+# tag_source = "instance_id"
+# [eval_images.mirrors.auth]
+# url = "registry.example.com"
+# username = "env:MIRROR_USER"
+# password = "env:MIRROR_PASS"
+# [eval_images.mirrors.tag_map]
+# "_1776_" = "__"
+
+# TB can use a task-ID-keyed registry populated by the operator:
+# [[eval_images.mirrors]]
+# prefix = "tb/"
+# rewrite = "registry.example.com/tb-lite:"
+# tag_source = "task_id"
+
+# Copied to each new workspace's editable serve_config.json.
+# See examples/serve/qwen35-9b-2xa10.json for a tested two-A10 text-only recipe.
+[serve.defaults]
+tensor_parallel = 1
+data_parallel = 1
+gpu_mem_util = 0.85
+max_model_len = 32768
+max_num_seqs = 0
+enable_prefix_caching = true
+enforce_eager = false
+extra_args = []
+
+[network]
+hf_endpoint = "https://huggingface.co"
+pip_index = "https://pypi.org/simple"

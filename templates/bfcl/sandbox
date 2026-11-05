@@ -1,0 +1,3 @@
+#!/bin/sh
+# Frozen platform client: interactive sandboxes through the broker.
+exec ceb client sandbox "$@"

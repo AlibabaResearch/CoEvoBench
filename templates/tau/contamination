@@ -1,0 +1,4 @@
+#!/bin/sh
+# Frozen platform client: private-corpus screening through the broker.
+# Exit codes: 0 = no_matches, 3 = review_required, 1 = failure.
+exec ceb client contamination "$@"

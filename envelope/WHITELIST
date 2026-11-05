@@ -1,0 +1,35 @@
+# The envelope's whole world: one module per line, repo-relative.
+# Anything not listed here never enters the run envelope's wheel.
+# Keep every line a real file — the build fails loudly on drift.
+coevobench/__init__.py
+coevobench/cli/__init__.py
+coevobench/cli/main.py
+coevobench/cli/eval.py
+coevobench/cli/workspace.py
+coevobench/research/__init__.py
+coevobench/research/client.py
+coevobench/research/eval_client.py
+coevobench/research/progress.py
+coevobench/research/loop.py
+coevobench/core/__init__.py
+coevobench/core/protocol/__init__.py
+coevobench/core/protocol/prompts.py
+coevobench/core/grading/__init__.py
+coevobench/core/grading/submission.py
+coevobench/core/lifecycle/__init__.py
+coevobench/core/lifecycle/timing.py
+coevobench/core/lifecycle/results.py
+coevobench/runtime/__init__.py
+coevobench/runtime/broker_wire.py
+coevobench/runtime/researcher/__init__.py
+coevobench/runtime/researcher/base.py
+coevobench/runtime/researcher/bootstrap.py
+coevobench/runtime/researcher/claude_code.py
+coevobench/runtime/researcher/codex.py
+coevobench/runtime/researcher/opencode.py
+coevobench/runtime/runhost/__init__.py
+coevobench/runtime/runhost/base.py
+coevobench/runtime/gpu/__init__.py
+coevobench/runtime/gpu/profile.py
+coevobench/runtime/sandbox/__init__.py
+coevobench/runtime/sandbox/base.py

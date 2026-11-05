@@ -1,0 +1,68 @@
+[project]
+name = "coevobench"
+version = "0.1.0"
+description = "CoEvoBench: a benchmark for evaluating LLM researchers on autonomous model-harness co-evolution."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.7",
+]
+
+[project.scripts]
+ceb = "coevobench.cli.main:main"
+coevobench-mcp = "coevobench.mcp.server:main"
+
+[project.optional-dependencies]
+modal = ["modal==1.6.2"]
+daytona = ["daytona==0.227.3"]
+s3 = ["boto3>=1.34"]
+mcp = ["mcp>=1.2"]
+benches = ["datasets>=2.20"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.8",
+    "mypy>=1.11",
+    "pytest-asyncio>=0.24",
+    "mcp>=1.2",
+    "tiktoken>=0.7",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/coevobench"]
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+default = true
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+# Verbatim port of the PostTrainBench decon SIMPLE engine: preserved as
+# historical reference; not reformatted to keep the diff auditable.
+"src/coevobench/core/contamination/engine.py" = ["E501", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+files = ["src/coevobench"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = ["sandbox: requires a docker daemon"]
+addopts = "-p no:cacheprovider"
