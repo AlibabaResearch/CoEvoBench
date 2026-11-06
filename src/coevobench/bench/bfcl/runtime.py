@@ -12,6 +12,7 @@ import uuid
 from pathlib import Path
 
 from coevobench.bench.bfcl.provenance import MANIFEST, VENDOR_ROOT, digest, verify_upstream
+from coevobench.runtime.sandbox.docker import cpu_limit
 
 ENGINE_MODULE = "coevobench.bench.bfcl.grading"
 GENERATION_IMAGE = "coevobench-bfcl:latest"
@@ -159,7 +160,7 @@ def run_repeat(
                 "--memory",
                 "16g",
                 "--cpus",
-                "8",
+                cpu_limit(8),
                 "--tmpfs",
                 "/tmp:rw,nosuid,size=2g",
             ]
@@ -219,7 +220,7 @@ def run_repeat(
                         "--memory",
                         "8g",
                         "--cpus",
-                        "4",
+                        cpu_limit(4),
                         "--pids-limit",
                         "256",
                         "-v",

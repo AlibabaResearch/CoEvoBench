@@ -24,7 +24,7 @@ from coevobench.runtime.runhost.base import (
     RunEnvelope,
     RunHandle,
 )
-from coevobench.runtime.sandbox.docker import _run_cli
+from coevobench.runtime.sandbox.docker import _run_cli, cpu_limit
 
 
 class DockerRunHandle:
@@ -111,7 +111,7 @@ class DockerRunHost:
             "--name",
             container,
             "--cpus",
-            "8",
+            cpu_limit(8),
             "--memory",
             "64g",
             "--shm-size",

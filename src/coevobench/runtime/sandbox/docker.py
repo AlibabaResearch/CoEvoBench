@@ -7,6 +7,7 @@ killpg), which is a semantic invariant of the Sandbox SPI.
 
 from __future__ import annotations
 
+import functools
 import signal
 import subprocess
 import time
@@ -41,6 +42,24 @@ def _run_cli(
         tail = (result.stderr or result.stdout).strip()[-400:]
         raise _CliError(f"docker {' '.join(args[:2])} failed: {tail}")
     return result
+
+
+@functools.lru_cache(maxsize=1)
+def _daemon_cpus() -> int:
+    return int(_run_cli(["info", "--format", "{{.NCPU}}"], timeout=30).stdout.strip())
+
+
+def cpu_limit(requested: float) -> str:
+    """A `--cpus` value the daemon accepts.
+
+    Docker rejects ceilings above the daemon's CPU count. The flag is an
+    upper bound, so capping it there keeps the same effective limit.
+    """
+    try:
+        available = _daemon_cpus()
+    except (_CliError, OSError, subprocess.TimeoutExpired, ValueError):
+        return str(requested)
+    return str(min(requested, available) if available > 0 else requested)
 
 
 class DockerSandbox:
@@ -158,7 +177,7 @@ class DockerSandboxRuntime:
             "--name",
             container,
             "--cpus",
-            str(spec.cpu),
+            cpu_limit(spec.cpu),
             "--memory",
             f"{spec.mem_gib}g",
         ]
